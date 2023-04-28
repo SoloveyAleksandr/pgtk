@@ -1,0 +1,58 @@
+@import "./vars";
+
+*,
+*::before,
+*::after {
+  font-family: $font-inter;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  color: $black_1;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+span {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 176rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.default-text {
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  letter-spacing: 0.03em;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 4.8rem;
+  line-height: 5.8rem;
+  color: $blue;
+}
+
+.block-title {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
