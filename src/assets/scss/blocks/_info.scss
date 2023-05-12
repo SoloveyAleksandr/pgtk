@@ -1,0 +1,62 @@
+.info {
+  &-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 23.3rem;
+    margin-bottom: 18rem;
+  }
+
+  &-nav {
+    flex: none;
+    width: 43.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__link {
+      font-weight: 500;
+      font-size: 2rem;
+      line-height: 2.4rem;
+      transition: 0.3s;
+
+      &:hover {
+        color: $blue;
+        opacity: 0.5;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 0.1rem solid $blue;
+        padding-bottom: 1.9rem;
+      }
+
+      &._active {
+        font-weight: 700;
+        color: $blue;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    @include infoText;
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      @include infoText;
+    }
+  }
+}

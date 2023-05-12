@@ -5,9 +5,8 @@
 }
 
 @mixin text {
-
   *,
-  *>* {
+  * > * {
     font-size: inherit;
     line-height: inherit;
     color: inherit;
@@ -15,6 +14,63 @@
 
     &:not(strong) {
       font-weight: inherit;
+    }
+  }
+}
+
+@mixin infoText {
+  & >,
+  * >,
+  * > * {
+    * {
+      font-size: inherit;
+      line-height: inherit;
+      font-family: inherit;
+      color: inherit;
+
+      :not(strong) {
+        font-weight: inherit;
+      }
+    }
+
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    color: inherit;
+
+    :not(strong) {
+      font-weight: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 2.4rem;
+      color: $blue;
+    }
+
+    a {
+      text-decoration: underline;
+      transition: 0.3s;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+
+    strong {
+      font-weight: 700;
     }
   }
 }
