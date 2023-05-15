@@ -19,4 +19,21 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     }
   }
+
+  const infoImages = document.querySelector(".info-images");
+  if (infoImages) {
+    const prevBtn = infoImages.querySelector(".info-images-btns__btn_prev");
+    const nextBtn = infoImages.querySelector(".info-images-btns__btn_next");
+
+    if (prevBtn && nextBtn) {
+      new Swiper(infoImages, {
+        slidesPerView: 2,
+        spaceBetween: 40,
+        navigation: {
+          prevEl: prevBtn,
+          nextEl: nextBtn,
+        },
+      })
+    }
+  }
 })

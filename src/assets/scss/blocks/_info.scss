@@ -1,14 +1,14 @@
 .info {
   &-container {
+    max-width: 100%;
     display: flex;
-    align-items: flex-start;
     gap: 6.5rem;
     margin-bottom: 18rem;
   }
 
   &-nav {
-    flex: none;
     width: 43.1rem;
+    flex: none;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -42,6 +42,7 @@
     display: flex;
     flex-direction: column;
     gap: 10rem;
+    overflow: hidden;
   }
 
   &-item {
@@ -235,6 +236,34 @@
         }
       }
     }
+
+    &_10 {
+      width: 87.1rem;
+
+      .info-table-item {
+        grid-template-columns: repeat(4, 1fr);
+
+        &:not(.info-table-head) {
+          .info-table-item__text {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    &_11 {
+      width: 88rem;
+
+      .info-table-item {
+        grid-template-columns: 15.34% 25% auto 17% 17%;
+
+        &__text {
+          &:nth-child(1n + 3) {
+            text-align: center;
+          }
+        }
+      }
+    }
   }
 
   &-link {
@@ -260,6 +289,57 @@
       font-size: 1.8rem;
       line-height: 2.2rem;
       font-family: $font-montserrat;
+    }
+  }
+
+  &-images {
+    &-btns {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      margin-bottom: 3rem;
+
+      &__btn {
+        width: 4rem;
+        height: 3rem;
+
+        svg {
+          width: 100%;
+          height: 100%;
+          fill: $blue;
+        }
+
+        &.swiper-button-disabled {
+          opacity: 0.5;
+          pointer-events: none;
+        }
+      }
+    }
+
+    &-item {
+      height: 84.8rem;
+      display: flex;
+      flex-direction: column;
+
+      &__text {
+        flex: 1;
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+      }
+
+      &__img {
+        width: 100%;
+        height: 78rem;
+        flex: none;
+
+        img {
+          object-fit: cover;
+          object-position: center center;
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
   }
 }
