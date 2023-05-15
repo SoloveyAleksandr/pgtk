@@ -74,6 +74,9 @@
         font-size: 1.4rem;
         line-height: 1.7rem;
         @include infoText;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
       }
 
       &.info-table-head {
@@ -140,11 +143,123 @@
         }
       }
     }
+
     &_5 {
       .info-table-item {
         grid-template-columns: repeat(6, 1fr);
         gap: 2rem;
       }
+    }
+
+    &_6 {
+      .info-table-item {
+        grid-template-columns: auto 25% 14.22% 10% 16% 19%;
+        gap: 2rem;
+      }
+    }
+
+    &_7 {
+      .info-table-item {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    &_8 {
+      width: 87.7rem;
+
+      .info-table-item {
+        grid-template-columns: 30.33% 23.6% 21.66% auto;
+        gap: 2rem;
+      }
+    }
+
+    &_9 {
+      width: fit-content;
+      background-color: $blue;
+      border: 0.1rem solid $blue;
+
+      .info-table__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+      }
+
+      .info-table-item {
+        grid-template-columns: 17.6rem repeat(8, 1fr);
+        padding: 0;
+        border: none;
+        margin: 0;
+        background-color: $blue;
+        gap: 1px;
+
+        .info-table-item__text {
+          background-color: $white;
+
+          &:not(:first-child) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0rem 2rem;
+          }
+
+          &:first-child {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+        }
+
+        &.info-table-head {
+          grid-template-columns: 17.6rem repeat(2, 1fr);
+
+          .info-table-item__inner {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1px;
+            background-color: $blue;
+
+            .info-table-item__text {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              &:nth-child(1) {
+                grid-area: 1/1/2/5;
+                padding: 2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+
+    &__title {
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 2.4rem;
+      color: $blue;
+    }
+
+    &__btn {
+      flex: none;
+      display: inline-block;
+      padding: 1.9rem 3.4rem;
+      background-color: $blue;
+      color: $white;
+      font-weight: 600;
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+      font-family: $font-montserrat;
     }
   }
 }
