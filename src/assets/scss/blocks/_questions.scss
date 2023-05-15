@@ -1,0 +1,82 @@
+.questions {
+  margin-bottom: 18rem;
+
+  &-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 12rem;
+  }
+
+  &-list {
+    width: 83.8rem;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.9rem;
+
+    &-item {
+      width: 100%;
+
+      &._active & {
+        &__btn {
+          color: $blue;
+          font-weight: 700;
+
+          &::before,
+          &::after {
+            background-color: $blue;
+            transform: rotate(135deg);
+          }
+
+          &::after {
+            transform: rotate(225deg);
+          }
+        }
+      }
+
+      &__btn {
+        width: 100%;
+        padding-bottom: 1.9rem;
+        border-bottom: 0.1rem solid $blue;
+        position: relative;
+        padding-right: 2.4rem;
+        text-align-last: left;
+        font-size: 2rem;
+        line-height: 2.4rem;
+        font-weight: 500;
+        transition: 0.3s;
+
+        &::before,
+        &::after {
+          content: "";
+          width: 1.4rem;
+          height: 0.2rem;
+          background-color: $black_1;
+          position: absolute;
+          right: 5px;
+          top: 0.5em;
+          transition: 0.3s;
+        }
+
+        &::after {
+          transform: rotate(90deg);
+        }
+      }
+
+      &__content {
+        overflow: hidden;
+        font-size: 1.8rem;
+        line-height: 2.6rem;
+        @include infoText;
+
+        &._active {
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+
+  &-content {
+    flex: 1;
+  }
+}

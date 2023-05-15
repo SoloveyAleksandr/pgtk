@@ -1,0 +1,11 @@
+.student {
+  &-container {
+    max-width: 103rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+    margin-bottom: 16rem;
+  }
+}
