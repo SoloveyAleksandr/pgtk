@@ -84,4 +84,47 @@ span {
     text-transform: uppercase;
     color: $blue;
   }
+
+  &-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 4.3rem;
+    margin-bottom: 4rem;
+
+    &__link {
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+      letter-spacing: 0.03em;
+      color: rgba(130, 130, 130, 1);
+      transition: 0.3s;
+
+      &:hover {
+        color: $blue;
+      }
+
+      &:not(:first-child) {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &::before {
+          content: "";
+          width: 1rem;
+          height: 0.1rem;
+          background-color: rgba(130, 130, 130, 1);
+        }
+      }
+
+      &:last-child {
+        color: $blue;
+        pointer-events: none;
+
+        &::before {
+          background-color: $blue;
+        }
+      }
+    }
+  }
 }

@@ -1,11 +1,12 @@
 .footer {
-  padding: 8rem 0rem 4.6rem;
-  border-top: 0.1rem solid $blue;
+  padding: 0rem 0rem 4.6rem;
 
   &-container {
     display: flex;
     align-items: flex-start;
     gap: 17.3rem;
+    padding-top: 8rem;
+    border-top: 0.1rem solid $blue;
   }
 
   &__logo {
@@ -72,7 +73,7 @@
       font-size: 1.8rem;
       line-height: 2.2rem;
       letter-spacing: 0.03em;
-      transition: .3s;
+      transition: 0.3s;
 
       &:hover {
         opacity: 0.5;
