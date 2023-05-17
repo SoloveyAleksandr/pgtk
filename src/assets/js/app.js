@@ -62,6 +62,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  class Menu {
+    constructor(menu, btn) {
+      this.menu = menu;
+      this.btn = btn;
+      this.isOpen = false;
+      if (this.menu && this.btn) {
+        this.init();
+      }
+    }
+
+    init() {
+      this.btn.addEventListener("click", this.handleClick.bind(this));
+    }
+
+    handleClick() {
+      if (this.isOpen) {
+        this.close();
+      } else {
+        this.open();
+      }
+    }
+
+    open() {
+      this.isOpen = true;
+      this.menu.classList.add("_active");
+      this.btn.classList.add("_active");
+    }
+
+    close() {
+      this.isOpen = false;
+      this.menu.classList.remove("_active");
+      this.btn.classList.remove("_active");
+    }
+  }
+
   const mainInfo = document.querySelector(".main-info");
   if (mainInfo) {
     const prevBtn = mainInfo.querySelector(".main-info-slider__btn_prev");
@@ -113,5 +148,21 @@ document.addEventListener("DOMContentLoaded", () => {
       new QuestionDropdownController(dropdownItems);
 
     }
+  }
+
+  if (window.matchMedia("(max-width: 1024px)").matches) {
+    const header = document.querySelector(".header");
+    const menu = document.querySelector(".header-menu");
+    const menuInner = document.querySelector(".header-menu__inner");
+    const menuBtn = document.querySelector(".header-menu-btn");
+
+    new Menu(menu, menuBtn);
+
+    const headerNav = header.querySelector(".header-nav");
+    const headerInfoItems = header.querySelectorAll(".header-top__item_mob");
+
+    menu.appendChild(headerNav);
+
+    headerInfoItems.forEach(item => menuInner.appendChild(item));
   }
 })
