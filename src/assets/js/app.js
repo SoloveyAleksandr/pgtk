@@ -105,13 +105,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (prevBtn && nextBtn && swiperContainer) {
       new Swiper(swiperContainer, {
-        slidesPerView: 3,
+        slidesPerView: 1,
         autoHeight: true,
-        spaceBetween: 90,
+        spaceBetween: 100,
         navigation: {
           prevEl: prevBtn,
           nextEl: nextBtn,
         },
+
+        breakpoints: {
+          1920: {
+            slidesPerView: 3,
+            spaceBetween: 90,
+          },
+          1025: {
+            slidesPerView: 2,
+            spaceBetween: 90,
+          },
+          501: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          }
+        }
       })
     }
   }
@@ -164,5 +179,73 @@ document.addEventListener("DOMContentLoaded", () => {
     menu.appendChild(headerNav);
 
     headerInfoItems.forEach(item => menuInner.appendChild(item));
+  }
+
+  if (document.querySelector(".main-news")) {
+    const prevBtn = document.querySelector(".main-news-btns__btn_prev");
+    const nextBtn = document.querySelector(".main-news-btns__btn_next");
+
+    new Swiper(".main-news-swiper", {
+      slidesPerView: 1,
+      spaceBetween: 100,
+      navigation: {
+        prevEl: prevBtn,
+        nextEl: nextBtn,
+      },
+      breakpoints: {
+        1920: {
+          slidesPerView: 4,
+          spaceBetween: 77,
+        },
+        1500: {
+          spaceBetween: 50,
+          slidesPerView: 4,
+        },
+        1025: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+        800: {
+          slidesPerView: 3,
+          spaceBetween: 25,
+        },
+        501: {
+          slidesPerView: 2,
+          spaceBetween: 25,
+        }
+      }
+    })
+  }
+
+  if (document.querySelector(".main-partners")) {
+    const prevBtn = document.querySelector(".main-partners-btns__btn_prev");
+    const nextBtn = document.querySelector(".main-partners-btns__btn_next");
+
+    new Swiper(".main-partners-swiper", {
+      slidesPerView: 2,
+      spaceBetween: 100,
+      navigation: {
+        prevEl: prevBtn,
+        nextEl: nextBtn,
+      },
+      breakpoints: {
+        1920: {
+          slidesPerView: 6,
+          spaceBetween: 60,
+        },
+        1500: {
+          spaceBetween: 50,
+          slidesPerView: 6,
+        },
+        1025: {
+          slidesPerView: 6,
+          spaceBetween: 30,
+        },
+        800: {
+          slidesPerView: 4,
+          spaceBetween: 25,
+        },
+      }
+    })
   }
 })
