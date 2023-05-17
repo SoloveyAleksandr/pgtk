@@ -7,12 +7,33 @@
     gap: 17.3rem;
     padding-top: 8rem;
     border-top: 0.1rem solid $blue;
+
+    @include breakpoint($xl-bp) {
+      gap: 2rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      flex-direction: column;
+      align-items: center;
+      gap: 2.6rem;
+      padding-top: 3rem;
+    }
   }
 
   &__logo {
     flex: none;
     width: 13rem;
     height: 17.5rem;
+
+    @include breakpoint($xl-bp) {
+      width: 8rem;
+      height: 10.5rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      width: 7.65rem;
+      height: 10.3rem;
+    }
 
     svg {
       width: 100%;
@@ -24,6 +45,17 @@
     flex: 1;
     display: grid;
     grid-template-columns: repeat(3, auto);
+
+    @include breakpoint($xl-bp) {
+      gap: 1rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
   }
 
   &-item {
@@ -38,12 +70,26 @@
     width: fit-content;
     margin-right: auto;
 
+    @include breakpoint($sm-bp) {
+      align-items: center;
+      margin: 0;
+      order: 3;
+      margin-top: 1rem;
+    }
+
     &__item {
       font-weight: 500;
       font-size: 1.8rem;
       line-height: 2.2rem;
       letter-spacing: 0.03em;
       text-decoration-line: underline;
+      width: fit-content;
+
+      @include breakpoint($sm-bp) {
+        text-align: center;
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+      }
     }
   }
 
@@ -54,10 +100,20 @@
     align-items: flex-start;
     gap: 3rem;
 
+    @include breakpoint($sm-bp) {
+      align-items: center;
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
     &__item {
       font-size: 1.4rem;
       line-height: 1.7rem;
       letter-spacing: 0.03em;
+
+      @include breakpoint($sm-bp) {
+        text-align: center;
+      }
     }
   }
 
@@ -68,12 +124,21 @@
     width: fit-content;
     margin: 0 auto;
 
+    @include breakpoint($sm-bp) {
+      align-items: center;
+      order: 2;
+    }
+
     &__item {
       font-weight: 700;
       font-size: 1.8rem;
       line-height: 2.2rem;
       letter-spacing: 0.03em;
       transition: 0.3s;
+
+      @include breakpoint($sm-bp) {
+        text-align: center;
+      }
 
       &:hover {
         opacity: 0.5;
@@ -90,12 +155,25 @@
     justify-content: space-between;
     max-width: 36.7rem;
 
+    @include breakpoint($sm-bp) {
+      align-items: center;
+      max-width: 100%;
+      order: 1;
+      gap: 1rem;
+    }
+
     &__item {
       font-weight: 500;
       font-size: 2rem;
       line-height: 2.4rem;
       text-align: right;
       letter-spacing: 0.03em;
+
+      @include breakpoint($sm-bp) {
+        text-align: center;
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+      }
     }
 
     &__link {
