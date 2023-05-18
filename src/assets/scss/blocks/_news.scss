@@ -1,21 +1,47 @@
 .news {
   margin-bottom: 18rem;
 
+  @include breakpoint($xl-bp) {
+    margin-bottom: 8rem;
+  }
+
   &-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 7.7rem;
     row-gap: 6rem;
+
+    @include breakpoint($xl-bp) {
+      gap: 3rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint($sm-bp) {
+      gap: 2rem;
+      grid-template-columns: 1fr;
+    }
   }
 }
 
 .news-page {
   margin-bottom: 18rem;
 
+  @include breakpoint($xl-bp) {
+    margin-bottom: 8rem;
+  }
+
   &-container {
     display: flex;
     gap: 8rem;
     align-items: flex-start;
+
+    @include breakpoint($xl-bp) {
+      flex-direction: column;
+    }
+
+    @include breakpoint($sm-bp) {
+      gap: 3rem;
+    }
   }
 
   &-content {
@@ -31,6 +57,12 @@
     text-transform: uppercase;
     color: $blue;
     margin-bottom: 6rem;
+
+    @include breakpoint($sm-bp) {
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+    }
   }
 
   &__date {
@@ -40,21 +72,39 @@
     letter-spacing: 0.03em;
     color: $blue;
     margin-bottom: 2rem;
+
+    @include breakpoint($sm-bp) {
+      font-size: 1.2rem;
+      line-height: 1.5rem;
+    }
   }
 
   &__text {
     max-width: 86.5rem;
     @include infoText;
+
+    @include breakpoint($sm-bp) {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
   }
 
   &-img {
     flex: none;
     width: 61.7rem;
 
+    @include breakpoint($sm-bp) {
+      width: 100%;
+    }
+
     img {
       object-fit: contain;
       width: 100%;
       margin-bottom: 8rem;
+
+      @include breakpoint($sm-bp) {
+        margin-bottom: 3rem;
+      }
     }
   }
 
@@ -76,10 +126,14 @@
       }
     }
 
+    @include breakpoint($sm-bp) {
+      justify-content: flex-end;
+    }
+
     svg {
       width: 3rem;
       height: 1em;
-      stroke: $blue;
+      fill: $blue;
       transition: 0.3s;
     }
   }

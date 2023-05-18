@@ -216,7 +216,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       new QuestionDropdownController(dropdownItems);
+    } else {
+      const dropdownItems = [];
+      questionsItems.forEach(item => {
+        const dropdown = new QuestionDropdown(item);
+        dropdownItems.push(dropdown);
+      });
 
+      new QuestionDropdownController(dropdownItems);
     }
   }
 

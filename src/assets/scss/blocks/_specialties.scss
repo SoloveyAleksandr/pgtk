@@ -2,16 +2,38 @@
   &-head {
     padding: 8rem 0;
     background-color: $blue;
+    margin-bottom: 18rem;
+
+    @include breakpoint($xl-bp) {
+      margin-bottom: 8rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      padding: 3rem 0rem 3.8rem;
+    }
 
     &__container {
       display: flex;
       flex-direction: column;
       gap: 10rem;
+
+      @include breakpoint($sm-bp) {
+        gap: 3rem;
+      }
     }
 
     &-top {
       display: flex;
       gap: 20rem;
+
+      @include breakpoint($xl-bp) {
+        flex-direction: column;
+        gap: 4rem;
+      }
+
+      @include breakpoint($sm-bp) {
+        gap: 2rem;
+      }
     }
 
     &-main {
@@ -23,12 +45,23 @@
         text-transform: uppercase;
         color: $white;
         margin-bottom: 5rem;
+
+        @include breakpoint($sm-bp) {
+          font-size: 2rem;
+          line-height: 2.4rem;
+          margin-bottom: 2rem;
+        }
       }
 
       &__text {
         color: $white;
         font-size: 1.6rem;
         line-height: 2.3rem;
+
+        @include breakpoint($sm-bp) {
+          font-size: 1.4rem;
+          line-height: 2rem;
+        }
       }
     }
 
@@ -36,6 +69,10 @@
       display: flex;
       flex-direction: column;
       gap: 5rem;
+
+      @include breakpoint($sm-bp) {
+        gap: 2rem;
+      }
 
       &__item {
         display: flex;
@@ -47,6 +84,11 @@
         font-size: 2rem;
         line-height: 2.9rem;
         color: $white;
+
+        @include breakpoint($sm-bp) {
+          font-size: 1.8rem;
+          line-height: 2.6rem;
+        }
       }
 
       &__text {
@@ -55,6 +97,11 @@
         line-height: 2.4rem;
         text-transform: uppercase;
         color: $white;
+
+        @include breakpoint($sm-bp) {
+          font-size: 1.6rem;
+          line-height: 1.9rem;
+        }
       }
     }
 
@@ -63,6 +110,15 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 4rem;
 
+      @include breakpoint($xl-bp) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include breakpoint($sm-bp) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
       &-item {
         background-color: $white;
         padding: 2rem;
@@ -70,6 +126,10 @@
         flex-direction: column;
         gap: 1.5rem;
         align-items: center;
+
+        @include breakpoint($sm-bp) {
+          min-height: 15.6rem;
+        }
 
         &__subtitle {
           font-size: 2rem;
@@ -94,6 +154,14 @@
     gap: 8rem;
     margin-bottom: 18rem;
 
+    @include breakpoint($xl-bp) {
+      margin-bottom: 8rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      gap: 2rem;
+    }
+
     &-list {
       display: flex;
       flex-direction: column;
@@ -105,6 +173,16 @@
         font-size: 2rem;
         line-height: 2.4rem;
         padding-right: 40rem;
+
+        @include breakpoint($xl-bp) {
+          padding-right: 0;
+        }
+
+        @include breakpoint($sm-bp) {
+          padding: 0.9rem 0;
+          font-size: 1.4rem;
+          line-height: 1.7rem;
+        }
 
         &:first-child {
           padding-top: 0;
@@ -124,10 +202,26 @@
     gap: 8rem;
     margin-bottom: 18rem;
 
+    @include breakpoint($xl-bp) {
+      margin-bottom: 8rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      gap: 2rem;
+    }
+
     &-list {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 4rem;
+
+      @include breakpoint($xl-bp) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include breakpoint($sm-bp) {
+        grid-template-columns: 1fr;
+      }
 
       &-item {
         background-color: $blue;
@@ -159,10 +253,27 @@
     gap: 8rem;
     margin-bottom: 18rem;
 
+    @include breakpoint($xl-bp) {
+      margin-bottom: 8rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      gap: 2rem;
+    }
+
     &-list {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 4rem;
+
+      @include breakpoint($xl-bp) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include breakpoint($sm-bp) {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
 
       &-item {
         &__title {
@@ -173,12 +284,25 @@
           min-height: 8.3rem;
           border-bottom: 0.1rem solid $blue;
           margin-bottom: 3rem;
+
+          @include breakpoint($sm-bp) {
+            margin-bottom: 2rem;
+            min-height: unset;
+            padding-bottom: 2rem;
+            font-size: 2rem;
+            line-height: 2.4rem;
+          }
         }
 
         &__text {
           font-size: 1.8rem;
           line-height: 2.2rem;
           letter-spacing: 0.03em;
+
+          @include breakpoint($sm-bp) {
+            font-size: 1.4rem;
+            line-height: 1.7rem;
+          }
         }
       }
     }
@@ -187,5 +311,9 @@
   &-form {
     background-color: $blue;
     margin-bottom: 18rem;
+
+    @include breakpoint($xl-bp) {
+      margin-bottom: 8rem;
+    }
   }
 }

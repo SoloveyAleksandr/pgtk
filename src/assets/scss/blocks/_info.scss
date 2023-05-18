@@ -379,14 +379,14 @@
     }
 
     &_12 {
-      width: 100%;
-      background-color: $blue;
-      border: 0.1rem solid $blue;
-
-      .info-table__content {
+      .info-table__container {
         display: flex;
         flex-direction: column;
         gap: 1px;
+        width: 100%;
+        min-width: 98rem;
+        background-color: $blue;
+        border: 0.1rem solid $blue;
       }
 
       .info-table-item {
@@ -441,14 +441,14 @@
     }
 
     &_13 {
-      width: 100%;
-      background-color: $blue;
-      border: 0.1rem solid $blue;
-
-      .info-table__content {
+      .info-table__container {
         display: flex;
         flex-direction: column;
         gap: 1px;
+        width: 100%;
+        background-color: $blue;
+        border: 0.1rem solid $blue;
+        min-width: 98rem;
       }
 
       .info-table-item {

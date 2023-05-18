@@ -107,6 +107,10 @@ span {
     margin-top: 4.3rem;
     margin-bottom: 4rem;
 
+    @include breakpoint($sm-bp) {
+      margin: 0rem 0rem 3rem;
+    }
+
     &__link {
       font-size: 1.4rem;
       line-height: 1.7rem;

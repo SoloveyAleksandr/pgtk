@@ -1,7 +1,16 @@
 .contacts {
   margin-top: 10rem;
-  margin-bottom: 19rem;
+  margin-bottom: 18rem;
   position: relative;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+  }
+
+  @include breakpoint($sm-bp) {
+    margin-top: 0;
+  }
 
   &-container {
     position: relative;
@@ -16,6 +25,18 @@
     top: 0;
     left: 0;
     max-width: 80rem;
+
+    @include breakpoint($xl-bp) {
+      max-width: 100%;
+      position: static;
+      margin-bottom: 6rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+      margin-bottom: 2rem;
+    }
   }
 
   &-inner {
@@ -23,6 +44,16 @@
     grid-template-columns: auto 27rem auto 23.8rem;
     gap: 6rem;
     margin-bottom: 3.6rem;
+
+    @include breakpoint($xl-bp) {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      gap: 2rem;
+    }
   }
 
   &-item {
@@ -35,6 +66,12 @@
       letter-spacing: 0.03em;
       color: $blue;
       margin-bottom: 2rem;
+
+      @include breakpoint($sm-bp) {
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+        margin-bottom: 1rem;
+      }
     }
 
     &__content {
@@ -46,33 +83,64 @@
       letter-spacing: 0.03em;
 
       @include contactsText;
+
+      @include breakpoint($sm-bp) {
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+      }
     }
 
     &:nth-child(1) {
       padding-top: 10.4rem;
       grid-area: 1/1/3/2;
       width: 71rem;
+
+      @include breakpoint($xl-bp) {
+        order: 5;
+        padding: 0;
+        width: 100%;
+      }
     }
 
     &:nth-child(2) {
       grid-area: 1/2/2/3;
+
+      @include breakpoint($xl-bp) {
+        order: 1;
+      }
     }
 
     &:nth-child(3) {
       grid-area: 1/3/2/4;
+
+      @include breakpoint($xl-bp) {
+        order: 3;
+      }
     }
 
     &:nth-child(4) {
       grid-area: 1/4/2/5;
       justify-self: right;
+
+      @include breakpoint($xl-bp) {
+        order: 2;
+      }
     }
 
     &:nth-child(5) {
       grid-area: 2/2/3/5;
+
+      @include breakpoint($xl-bp) {
+        order: 4;
+      }
     }
   }
 
   &-map {
     height: 52.7rem;
+
+    @include breakpoint($sm-bp) {
+      height: 37.8rem;
+    }
   }
 }
