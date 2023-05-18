@@ -4,6 +4,15 @@
     display: flex;
     gap: 6.5rem;
     margin-bottom: 18rem;
+
+    @include breakpoint($xl-bp) {
+      flex-direction: column;
+      margin-bottom: 8rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      gap: 2rem;
+    }
   }
 
   &-nav {
@@ -12,12 +21,29 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    overflow: hidden;
+    transition: 0.5s;
+
+    @include breakpoint($xl-bp) {
+      width: 100%;
+      max-width: 50rem;
+
+      &._active {
+        padding: 2rem 0;
+      }
+    }
 
     &__link {
       font-weight: 500;
       font-size: 2rem;
       line-height: 2.4rem;
       transition: 0.3s;
+
+      @include breakpoint($xl-bp) {
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+      }
 
       &:hover {
         color: $blue;
@@ -33,6 +59,47 @@
         font-weight: 700;
         color: $blue;
         pointer-events: none;
+
+        @include breakpoint($xl-bp) {
+          display: none;
+        }
+      }
+    }
+
+    &-btn {
+      width: 100%;
+      max-width: 50rem;
+      padding-right: 5rem;
+      padding-left: 1.5rem;
+      position: relative;
+      min-height: 6rem;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 1.9rem;
+      color: $white;
+      background-color: $blue;
+      display: none;
+      text-align: left;
+
+      @include breakpoint($xl-bp) {
+        display: flex;
+      }
+
+      &._active {
+        svg {
+          transform: scaleY(-1);
+        }
+      }
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        right: 2rem;
+        fill: $white;
       }
     }
   }
@@ -43,6 +110,10 @@
     flex-direction: column;
     gap: 10rem;
     overflow: hidden;
+
+    @include breakpoint($xl-bp) {
+      gap: 6rem;
+    }
   }
 
   &-item {
@@ -53,17 +124,49 @@
     line-height: 1.9rem;
     @include infoText;
 
+    @include breakpoint($sm-bp) {
+      gap: 2rem;
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+    }
+
     &__inner {
       display: flex;
       flex-direction: column;
       gap: 2rem;
       @include infoText;
+
+      @include breakpoint($sm-bp) {
+        gap: 1rem;
+      }
     }
   }
 
   &-table {
     display: flex;
     flex-direction: column;
+
+    @include breakpoint($xl-bp) {
+      overflow: auto;
+      padding-bottom: 1rem;
+      &::-webkit-scrollbar {
+        width: 0.9rem; /* ширина scrollbar */
+        height: 0.9rem;
+      }
+      &::-webkit-scrollbar-track {
+        background: rgba(73, 153, 204, 0.16); /* цвет дорожки */
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(50, 139, 194, 1); /* цвет плашки */
+        border-radius: 0.9rem; /* закругления плашки */
+      }
+    }
+
+    &__container {
+      @include breakpoint($xl-bp) {
+        width: 130rem;
+      }
+    }
 
     &-item {
       padding: 1rem 0;
@@ -98,7 +201,9 @@
     }
 
     &_2 {
-      width: 71.2rem;
+      .info-table__container {
+        width: 71.2rem;
+      }
 
       .info-table-item {
         grid-template-columns: auto 36.51% 36.51%;
@@ -114,7 +219,9 @@
     }
 
     &_3 {
-      width: 71.2rem;
+      .info-table__container {
+        width: 71.2rem;
+      }
 
       .info-table-item {
         grid-template-columns: 50% 50%;
@@ -130,7 +237,9 @@
     }
 
     &_4 {
-      width: 71.2rem;
+      .info-table__container {
+        width: 71.2rem;
+      }
 
       .info-table-item {
         grid-template-columns: auto 36.51% 36.51%;
@@ -167,7 +276,9 @@
     }
 
     &_8 {
-      width: 87.7rem;
+      .info-table__container {
+        width: 87.7rem;
+      }
 
       .info-table-item {
         grid-template-columns: 30.33% 23.6% 21.66% auto;
@@ -176,18 +287,17 @@
     }
 
     &_9 {
-      width: fit-content;
-      background-color: $blue;
-      border: 0.1rem solid $blue;
-
-      .info-table__content {
+      .info-table__container {
+        width: fit-content;
+        background-color: $blue;
+        border: 0.1rem solid $blue;
         display: flex;
         flex-direction: column;
         gap: 1px;
       }
 
       .info-table-item {
-        grid-template-columns: 17.6rem repeat(8, 1fr);
+        grid-template-columns: 17.6rem repeat(8, 7.6rem);
         padding: 0;
         border: none;
         margin: 0;
@@ -201,7 +311,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0rem 2rem;
           }
 
           &:first-child {
@@ -217,7 +326,7 @@
 
           .info-table-item__inner {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, 7.6rem);
             grid-template-rows: repeat(2, 1fr);
             gap: 1px;
             background-color: $blue;
@@ -238,7 +347,9 @@
     }
 
     &_10 {
-      width: 87.1rem;
+      .info-table__container {
+        width: 87.1rem;
+      }
 
       .info-table-item {
         grid-template-columns: repeat(4, 1fr);
@@ -252,7 +363,9 @@
     }
 
     &_11 {
-      width: 88rem;
+      .info-table__container {
+        width: 88rem;
+      }
 
       .info-table-item {
         grid-template-columns: 15.34% 25% auto 17% 17%;
@@ -380,11 +493,25 @@
     align-items: center;
     gap: 6rem;
 
+    @include breakpoint($xl-bp) {
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    @include breakpoint($sm-bp) {
+      flex-direction: column;
+    }
+
     &__title {
       font-weight: 700;
       font-size: 2rem;
       line-height: 2.4rem;
       color: $blue;
+
+      @include breakpoint($sm-bp) {
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+      }
     }
 
     &__btn {
@@ -397,6 +524,11 @@
       font-size: 1.8rem;
       line-height: 2.2rem;
       font-family: $font-montserrat;
+      text-align: center;
+
+      @include breakpoint($sm-bp) {
+        width: 100%;
+      }
     }
   }
 
@@ -425,9 +557,15 @@
     }
 
     &-item {
-      height: 84.8rem;
+      min-height: 84.8rem;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+
+      @include breakpoint($sm-bp) {
+        min-height: unset;
+      }
 
       &__text {
         flex: 1;
@@ -437,9 +575,14 @@
       }
 
       &__img {
+        flex: none;
         width: 100%;
         height: 78rem;
         flex: none;
+
+        @include breakpoint($sm-bp) {
+          height: 46rem;
+        }
 
         img {
           object-fit: cover;

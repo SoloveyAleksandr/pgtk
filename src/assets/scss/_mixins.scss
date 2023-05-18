@@ -50,6 +50,11 @@
       font-size: 2rem;
       line-height: 2.4rem;
       color: $blue;
+
+      @include breakpoint($sm-bp) {
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+      }
     }
 
     h5,

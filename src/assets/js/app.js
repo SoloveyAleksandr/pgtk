@@ -97,6 +97,55 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  class InfoNav {
+    constructor(container, btn, activeItem) {
+      this.container = container;
+      this.btn = btn;
+      this.btnText = this.btn.querySelector(".info-nav-btn__text");
+      this.activeItem = activeItem;
+      this.maxHeight = 0;
+      this.isOpen = false;
+
+      if (this.container && this.btn && this.btnText && activeItem) {
+        this.init();
+      }
+    }
+
+    init() {
+      this.btnText.textContent = this.activeItem.textContent;
+      this.maxHeight = this.container.offsetHeight * 2;
+      this.btn.addEventListener("click", this.handleClick.bind(this));
+      this.close();
+    }
+
+    handleClick() {
+      if (this.isOpen) {
+        this.close();
+      } else {
+        this.open();
+      }
+    }
+
+    open() {
+      this.isOpen = true;
+      this.container.classList.add("_active");
+      this.btn.classList.add("_active");
+
+      if (window.matchMedia("(max-width: 1024px)").matches) {
+        this.container.style.maxHeight = this.maxHeight + "px";
+      }
+    }
+
+    close() {
+      this.isOpen = false;
+      this.container.classList.remove("_active");
+      this.btn.classList.remove("_active");
+      if (window.matchMedia("(max-width: 1024px)").matches) {
+        this.container.style.maxHeight = "0px";
+      }
+    }
+  }
+
   const mainInfo = document.querySelector(".main-info");
   if (mainInfo) {
     const prevBtn = mainInfo.querySelector(".main-info-slider__btn_prev");
@@ -138,12 +187,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (prevBtn && nextBtn) {
       new Swiper(infoImages, {
-        slidesPerView: 2,
+        autoHeight: true,
+        slidesPerView: 1,
         spaceBetween: 40,
         navigation: {
           prevEl: prevBtn,
           nextEl: nextBtn,
         },
+        breakpoints: {
+          501: {
+            slidesPerView: 2,
+          }
+        }
       })
     }
   }
@@ -247,5 +302,13 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       }
     })
+  }
+
+  if (document.querySelector(".info-nav-wrapper")) {
+    const infoNavBtn = document.querySelector(".info-nav-btn");
+    const infoNav = document.querySelector(".info-nav");
+    const activeNavItem = infoNav.querySelector(".info-nav__link._active");
+
+    new InfoNav(infoNav, infoNavBtn, activeNavItem);
   }
 })
