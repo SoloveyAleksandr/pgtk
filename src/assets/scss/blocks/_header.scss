@@ -13,7 +13,7 @@
   &-container {
     display: flex;
     align-items: center;
-    gap: 11.2rem;
+    gap: 5rem;
 
     @include breakpoint($xl-bp) {
       display: grid;
@@ -29,8 +29,8 @@
 
   &-logo {
     flex: none;
-    width: 8.9rem;
-    height: 12rem;
+    width: 10.9rem;
+    height: 15rem;
 
     @include breakpoint($xl-bp) {
       width: 5rem;
