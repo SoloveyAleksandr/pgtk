@@ -155,10 +155,12 @@
         flex: none;
         width: 2rem;
         height: 2rem;
+        transition: 0.3s;
       }
 
       &:hover {
         color: $black_1;
+        opacity: 0.5;
       }
 
       @include breakpoint($xl-bp) {
@@ -188,6 +190,70 @@
 
       @include breakpoint($xl-bp) {
         display: none;
+      }
+    }
+
+    &-drop {
+      position: relative;
+
+      &._active {
+        .header-nav-drop__btn {
+          svg {
+            transform: scaleY(-1);
+          }
+        }
+
+        .header-nav-drop__content {
+          opacity: 1;
+          pointer-events: all;
+
+          @include breakpoint($xl-bp) {
+            padding-top: 0.8rem;
+          }
+        }
+      }
+
+      &__content {
+        position: absolute;
+        z-index: 100;
+        top: 100%;
+        left: 0;
+        padding-top: 0.8rem;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s;
+
+        @include breakpoint($xl-bp) {
+          position: static;
+          padding-top: 0;
+        }
+      }
+
+      &__inner {
+        width: max-content;
+        max-width: 27rem;
+        padding: 2rem 1.5rem;
+        border: 0.1rem solid rgba(73, 153, 204, 0.16);
+        background-color: $white;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        @include breakpoint($xl-bp) {
+          max-width: 100%;
+          padding: 0;
+          gap: 1.5rem;
+          border: none;
+          background-color: transparent;
+        }
+
+        .header-nav__link {
+          max-width: 100%;
+          font-size: 1.4rem;
+          line-height: 1.7rem;
+          text-transform: unset;
+        }
       }
     }
   }

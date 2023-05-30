@@ -146,6 +146,54 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  class HeaderDropdown {
+    constructor(container) {
+      this.container = container;
+      this.btn = this.container.querySelector(".header-nav-drop__btn");
+      this.content = this.container.querySelector(".header-nav-drop__content");
+      this.maxHeight = 0;
+      this.isActive = false;
+
+      if (this.container && this.btn && this.content) {
+        this.init();
+      }
+    }
+
+    init() {
+      this.maxHeight = this.content.offsetHeight * 2;
+      if (window.matchMedia("(max-width: 1024px)").matches) {
+        this.btn.addEventListener("click", this.handleClick.bind(this));
+      } else {
+        this.container.addEventListener("mouseenter", this.open.bind(this));
+        this.container.addEventListener("mouseleave", this.close.bind(this));
+      }
+      this.close();
+    }
+
+    handleClick() {
+      if (this.isActive) {
+        this.close();
+      } else {
+        this.open();
+      }
+    }
+
+    open() {
+      this.isActive = true;
+      this.container.classList.add("_active");
+      this.content.style.maxHeight = this.maxHeight + "px";
+    }
+
+    close() {
+      this.isActive = false;
+      this.container.classList.remove("_active");
+      this.content.style.maxHeight = "0px";
+    }
+  }
+
+  const headerNavDropItems = document.querySelectorAll(".header-nav-drop");
+  headerNavDropItems.forEach(item => new HeaderDropdown(item));
+
   const mainInfo = document.querySelector(".main-info");
   if (mainInfo) {
     const prevBtn = mainInfo.querySelector(".main-info-slider__btn_prev");
