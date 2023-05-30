@@ -1,6 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   Fancybox.bind("[data-fancybox]", {});
 
+  const startWindowSize = window.outerWidth;
+  window.onresize = () => {
+    if (startWindowSize > 1024 && window.outerWidth <= 1024) {
+      location.reload();
+    } else if (startWindowSize <= 1024 && window.outerWidth > 1024) {
+      location.reload();
+    }
+  }
+
   class QuestionDropdown {
     constructor(container) {
       this.container = container;
