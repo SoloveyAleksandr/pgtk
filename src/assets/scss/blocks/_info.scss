@@ -197,6 +197,14 @@
     &_1 {
       .info-table-item {
         grid-template-columns: 11% 13% 13% 15% 13% 15% auto;
+
+        &:not(.info-table-head) {
+          .info-table-item__text {
+            &:last-child {
+              text-align: center;
+            }
+          }
+        }
       }
     }
 
