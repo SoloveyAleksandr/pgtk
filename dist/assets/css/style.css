@@ -2888,15 +2888,7 @@ svg {
 }
 
 .info-table__inner thead table th {
-    padding: 1rem 0rem 0rem;
-}
-
-.info-table__inner thead table th:not(:last-child) {
-    padding-right: 1rem;
-}
-
-.info-table__inner thead table th:not(:first-child) {
-    padding-left: 1rem;
+    padding: 1rem;
 }
 
 .info-table__inner tr {
@@ -2909,20 +2901,17 @@ svg {
     vertical-align: top;
 }
 
+.info-table__inner th:has(table),
+.info-table__inner td:has(table) {
+    padding: 0;
+}
+
 .info-table__inner tbody table tr {
     border: none;
 }
 
 .info-table__inner tbody table td {
-    padding: 0rem;
-}
-
-.info-table__inner tbody table td:not(:last-child) {
-    padding-right: 1rem;
-}
-
-.info-table__inner tbody table td:not(:first-child) {
-    padding-left: 1rem;
+    padding: 1rem;
 }
 
 .info-table__inner tbody td {
@@ -2947,6 +2936,24 @@ svg {
 
 .info-table__inner tbody td strong {
     font-weight: 700;
+}
+
+.info-table__inner[data-border] thead {
+    border: none;
+}
+
+.info-table__inner[data-border] table,
+.info-table__inner[data-border] th,
+.info-table__inner[data-border] td {
+    border: 0.1rem solid rgb(50, 139, 194);
+    border-collapse: collapse;
+}
+
+.info-table__inner[data-border] th,
+.info-table__inner[data-border] td {
+    padding: 2rem;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .info-link {

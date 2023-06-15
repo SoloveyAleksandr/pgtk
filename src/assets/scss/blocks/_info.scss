@@ -202,15 +202,7 @@
           }
 
           th {
-            padding: 1rem 0rem 0rem;
-
-            &:not(:last-child) {
-              padding-right: 1rem;
-            }
-
-            &:not(:first-child) {
-              padding-left: 1rem;
-            }
+            padding: 1rem;
           }
         }
       }
@@ -223,6 +215,10 @@
       td {
         padding: 1rem 1rem;
         vertical-align: top;
+
+        &:has(table) {
+          padding: 0;
+        }
       }
 
       tbody {
@@ -232,15 +228,7 @@
           }
 
           td {
-            padding: 0rem;
-
-            &:not(:last-child) {
-              padding-right: 1rem;
-            }
-
-            &:not(:first-child) {
-              padding-left: 1rem;
-            }
+            padding: 1rem;
           }
         }
 
@@ -253,6 +241,26 @@
           strong {
             font-weight: 700;
           }
+        }
+      }
+
+      &[data-border] {
+        thead {
+          border: none;
+        }
+
+        table,
+        th,
+        td {
+          border: 0.1rem solid $blue;
+          border-collapse: collapse;
+        }
+
+        th,
+        td {
+          padding: 2rem;
+          text-align: center;
+          vertical-align: middle;
         }
       }
     }
