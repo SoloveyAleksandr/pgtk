@@ -466,6 +466,7 @@ span {
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
+    position: relative;
 }
 
 .container {
@@ -580,6 +581,34 @@ span {
     background-color: rgb(50, 139, 194);
 }
 
+.up-btn {
+    position: fixed;
+    z-index: 500;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: rgb(50, 139, 194);
+    box-shadow: 0 0 1rem rgb(255, 255, 255);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.up-btn._active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.up-btn svg {
+    width: 70%;
+    height: 70%;
+    fill: rgb(255, 255, 255);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
 html {
     box-sizing: border-box;
     font-size: 0.5208333333vw;
@@ -615,6 +644,11 @@ svg {
 .header {
     padding: 2.2rem 0rem 0;
     background-color: rgb(255, 255, 255);
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
 }
 
 @media (max-width: 1024px) {
@@ -625,6 +659,15 @@ svg {
         left: 0;
         z-index: 1000;
     }
+}
+
+.header._active {
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+}
+
+.header._hidden {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
 }
 
 .header-container {

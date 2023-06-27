@@ -72,9 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   class Menu {
-    constructor(menu, btn) {
+    constructor(menu, btn, header) {
       this.menu = menu;
       this.btn = btn;
+      this.header = header;
       this.isOpen = false;
       if (this.menu && this.btn) {
         this.init();
@@ -97,12 +98,50 @@ document.addEventListener("DOMContentLoaded", () => {
       this.isOpen = true;
       this.menu.classList.add("_active");
       this.btn.classList.add("_active");
+      this.header.classList.add("_active-menu");
     }
 
     close() {
       this.isOpen = false;
       this.menu.classList.remove("_active");
       this.btn.classList.remove("_active");
+      this.header.classList.remove("_active-menu");
+    }
+  }
+
+  class Header {
+    constructor(header) {
+      this.header = header;
+      this.prevPos = 0;
+      if (this.header) {
+        this.init();
+      }
+    }
+
+    init() {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) {
+          this.header.classList.add("_active");
+          if (this.prevPos > window.scrollY) {
+            this.show();
+          } else {
+            this.hide();
+          }
+        } else {
+          this.header.classList.remove("_active");
+        }
+        this.prevPos = window.scrollY;
+      })
+    }
+
+    hide() {
+      if (!this.header.classList.contains("_active-menu")) {
+        this.header.classList.add("_hidden");
+      }
+    }
+
+    show() {
+      this.header.classList.remove("_hidden");
     }
   }
 
@@ -200,6 +239,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  class UpBtn {
+    constructor(btn) {
+      this.btn = btn;
+
+      if (this.btn) {
+        this.init();
+      }
+    }
+
+    init() {
+      this.btn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        })
+      })
+
+      document.addEventListener("scroll", () => {
+        if (window.scrollY > window.outerHeight) {
+          this.btn.classList.add("_active");
+        } else {
+          this.btn.classList.remove("_active");
+        }
+      })
+    }
+  }
+
+  const upBtn = document.querySelector(".up-btn");
+  if (upBtn) {
+    new UpBtn(upBtn);
+  }
+
   const headerNavDropItems = document.querySelectorAll(".header-nav-drop");
   headerNavDropItems.forEach(item => new HeaderDropdown(item));
 
@@ -284,20 +355,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  if (window.matchMedia("(max-width: 1024px)").matches) {
-    const header = document.querySelector(".header");
-    const menu = document.querySelector(".header-menu");
-    const menuInner = document.querySelector(".header-menu__inner");
-    const menuBtn = document.querySelector(".header-menu-btn");
+  const header = document.querySelector(".header");
+  if (header) {
+    new Header(header);
 
-    new Menu(menu, menuBtn);
+    if (window.matchMedia("(max-width: 1024px)").matches) {
+      const menu = document.querySelector(".header-menu");
+      const menuInner = document.querySelector(".header-menu__inner");
+      const menuBtn = document.querySelector(".header-menu-btn");
 
-    const headerNav = header.querySelector(".header-nav");
-    const headerInfoItems = header.querySelectorAll(".header-top__item_mob");
+      new Menu(menu, menuBtn, header);
 
-    menu.appendChild(headerNav);
+      const headerNav = header.querySelector(".header-nav");
+      const headerInfoItems = header.querySelectorAll(".header-top__item_mob");
 
-    headerInfoItems.forEach(item => menuInner.appendChild(item));
+      menu.appendChild(headerNav);
+
+      headerInfoItems.forEach(item => menuInner.appendChild(item));
+    }
   }
 
   if (document.querySelector(".main-news")) {
@@ -374,5 +449,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const activeNavItem = infoNav.querySelector(".info-nav__link._active");
 
     new InfoNav(infoNav, infoNavBtn, activeNavItem);
+  }
+
+  const footerYear = document.querySelector("#footer-current-year");
+  if (footerYear) {
+    (async () => {
+      fetch("http://worldtimeapi.org/api/ip")
+        .then(response => response.json())
+        .then(data => {
+          footerYear.innerText = new Date(data.datetime).getFullYear()
+        });
+    })();
   }
 })

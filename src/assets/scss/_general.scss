@@ -46,6 +46,7 @@ span {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .container {
@@ -144,5 +145,32 @@ span {
         }
       }
     }
+  }
+}
+
+.up-btn {
+  position: fixed;
+  z-index: 500;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: $blue;
+  box-shadow: 0 0 1rem rgb(255, 255, 255);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+
+  &._active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  svg {
+    width: 70%;
+    height: 70%;
+    fill: $white;
+    transform: rotate(180deg);
   }
 }
