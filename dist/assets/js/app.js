@@ -483,6 +483,8 @@ document.addEventListener("DOMContentLoaded", function () {
               return response.json();
             }).then(function (data) {
               footerYear.innerText = new Date(data.datetime).getFullYear();
+            }).catch(function () {
+              footerYear.innerText = new Date().getFullYear();
             });
           case 1:
           case "end":

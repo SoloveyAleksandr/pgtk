@@ -458,6 +458,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(data => {
           footerYear.innerText = new Date(data.datetime).getFullYear()
+        })
+        .catch(() => {
+          footerYear.innerText = new Date().getFullYear();
         });
     })();
   }
