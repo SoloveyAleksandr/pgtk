@@ -307,6 +307,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }]);
     return UpBtn;
   }();
+  var Legal = /*#__PURE__*/function () {
+    function Legal(container) {
+      _classCallCheck(this, Legal);
+      this.container = container;
+      this.bg = this.container.querySelector(".legal__bg");
+      this.btn = this.container.querySelector(".legal__btn");
+      if (this.container && this.bg && this.btn) {
+        this.init();
+      }
+    }
+    _createClass(Legal, [{
+      key: "init",
+      value: function init() {
+        this.bg.addEventListener("click", this.close.bind(this));
+        this.btn.addEventListener("click", this.close.bind(this));
+      }
+    }, {
+      key: "open",
+      value: function open() {
+        this.container.classList.add("_active");
+      }
+    }, {
+      key: "close",
+      value: function close() {
+        this.container.classList.remove("_active");
+      }
+    }]);
+    return Legal;
+  }();
   var upBtn = document.querySelector(".up-btn");
   if (upBtn) {
     new UpBtn(upBtn);
@@ -492,5 +521,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }, _callee);
     }))();
+  }
+  var legalContainer = document.querySelector(".legal");
+  if (legalContainer) {
+    var legal = new Legal(legalContainer);
+    var btns = document.querySelectorAll("[data-legal]");
+    btns.forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        legal.open();
+      });
+    });
   }
 });

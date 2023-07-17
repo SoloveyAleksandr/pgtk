@@ -266,6 +266,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  class Legal {
+    constructor(container) {
+      this.container = container;
+      this.bg = this.container.querySelector(".legal__bg");
+      this.btn = this.container.querySelector(".legal__btn");
+
+      if (this.container && this.bg && this.btn) {
+        this.init();
+      }
+    }
+
+    init() {
+      this.bg.addEventListener("click", this.close.bind(this));
+      this.btn.addEventListener("click", this.close.bind(this));
+    }
+
+    open() {
+      this.container.classList.add("_active");
+    }
+
+    close() {
+      this.container.classList.remove("_active");
+    }
+  }
+
   const upBtn = document.querySelector(".up-btn");
   if (upBtn) {
     new UpBtn(upBtn);
@@ -464,4 +489,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     })();
   }
+
+  const legalContainer = document.querySelector(".legal");
+  if (legalContainer) {
+    const legal = new Legal(legalContainer);
+
+    const btns = document.querySelectorAll("[data-legal]");
+    btns.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        legal.open();
+      });
+    });
+  }
+
 })
